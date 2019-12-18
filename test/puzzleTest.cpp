@@ -9,7 +9,7 @@ typedef std::vector<int> Data;
 int outA, outB, outC;
 
 
-TEST( PuzzleTest, Random ) 
+TEST( Puzzle, Random ) 
 {
     const int           SIZE  = 1000;
     const int           RRAND = 1000;    /// not more than RAND_MAX
@@ -26,7 +26,7 @@ TEST( PuzzleTest, Random )
     ASSERT_NO_FATAL_FAILURE( searchTriplet( data, outA, outB, outC ) );
 }
 
-TEST( PuzzleTest, FoundSimple )
+TEST( Puzzle, FoundSimple )
 {
     Data data = { -100, 5, -10, 110 };
 
@@ -36,14 +36,14 @@ TEST( PuzzleTest, FoundSimple )
     ASSERT_EQ( outC,  110 );
 }
 
-TEST( PuzzleTest, NotFoundSimple )
+TEST( Puzzle, NotFoundSimple )
 {
     Data data = { -100, 5, 9, 110 };
 
     ASSERT_FALSE( searchTriplet( data, outA, outB, outC ) );
 }
 
-TEST( PuzzleTest, FoundWithOneZero )
+TEST( Puzzle, FoundWithOneZero )
 {
     Data data = { -100, 0, 5, 100 };
 
@@ -54,7 +54,7 @@ TEST( PuzzleTest, FoundWithOneZero )
 }
 
 
-TEST( PuzzleTest, FoundWithThreeZero )
+TEST( Puzzle, FoundWithThreeZero )
 {
     Data data = { -100, 0, 0, 0, 110 };
 
@@ -64,7 +64,7 @@ TEST( PuzzleTest, FoundWithThreeZero )
     ASSERT_EQ( outC, 0 );
 }
 
-TEST( PuzzleTest, FoundWithThreeItem )
+TEST( Puzzle, FoundWithThreeItem )
 {
     Data data = { -120, 10, 110 };
 
@@ -74,14 +74,14 @@ TEST( PuzzleTest, FoundWithThreeItem )
     ASSERT_EQ( outC, 110 );
 }
 
-TEST( PuzzleTest, NotFoundWithPotentialDublicate )
+TEST( Puzzle, NotFoundWithPotentialDublicate )
 {
     Data data = { -100, 30, 50, 200 };
 
     ASSERT_FALSE( searchTriplet( data, outA, outB, outC ) );
 }
 
-TEST( PuzzleTest, FoundWithDublicates )
+TEST( Puzzle, FoundWithDublicates )
 {
     Data data = { -100, -2, -10, 30, 50, 200, 50 };
 
