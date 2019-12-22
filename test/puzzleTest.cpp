@@ -101,7 +101,5 @@ TEST( Puzzle, ComplexCase )
     Data data = { -100, -50, -25, 5, 6,7,8,9,10, 11, 18, 20, 21, 22, 23,24 ,25, 26, 27, 28, 31 };
 
     ASSERT_TRUE( searchTriplet( data, outA, outB, outC ) );
-    ASSERT_EQ( outA, -25 );
-    ASSERT_EQ( outB, 5 );
-    ASSERT_EQ( outC, 20 );
+    ASSERT_EQ( outA + outB + outC,  0 );
 }
