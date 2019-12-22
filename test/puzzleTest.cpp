@@ -23,7 +23,12 @@ TEST( Puzzle, Random )
         cout << "Data[" << i << "]:\t" << data[i] << endl;
     }
 
-    ASSERT_NO_FATAL_FAILURE( searchTriplet( data, outA, outB, outC ) );
+    bool result = searchTriplet( data, outA, outB, outC );
+    if ( result )
+    {
+        ASSERT_EQ( outA + outB + outC,  0 );
+    }
+
 }
 
 TEST( Puzzle, FoundSimple )
@@ -89,4 +94,14 @@ TEST( Puzzle, FoundWithDublicates )
     ASSERT_EQ( outA, -100 );
     ASSERT_EQ( outB, 50 );
     ASSERT_EQ( outC, 50 );
+}
+
+TEST( Puzzle, ComplexCase )
+{
+    Data data = { -100, -50, -25, 5, 6,7,8,9,10, 11, 18, 20, 21, 22, 23,24 ,25, 26, 27, 28, 31 };
+
+    ASSERT_TRUE( searchTriplet( data, outA, outB, outC ) );
+    ASSERT_EQ( outA, -25 );
+    ASSERT_EQ( outB, 5 );
+    ASSERT_EQ( outC, 20 );
 }
