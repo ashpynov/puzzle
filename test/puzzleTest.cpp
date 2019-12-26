@@ -13,22 +13,15 @@ TEST( Puzzle, Random )
 {
     const int           SIZE  = 1000;
     const int           RRAND = 1000;    /// not more than RAND_MAX
-    
     vector<int>         data;
+
     // Fill the data by random integers
     data.reserve( SIZE );
     for (int i = 0; i < SIZE; i++ )
-    {
         data.push_back( (rand() % (RRAND * 2 )) - RRAND );
-        cout << "Data[" << i << "]:\t" << data[i] << endl;
-    }
 
-    bool result = searchTriplet( data, outA, outB, outC );
-    if ( result )
-    {
+    if ( searchTriplet( data, outA, outB, outC ) )
         ASSERT_EQ( outA + outB + outC,  0 );
-    }
-
 }
 
 TEST( Puzzle, FoundSimple )
